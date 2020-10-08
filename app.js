@@ -55,8 +55,6 @@ UI.prototype.showAlert = function(message, className) {
 UI.prototype.deleteBook = function(target){
     if(target.className === 'delete') {
         target.parentElement.parentElement.remove();
-        // Show Message
-        ui.showAlert('Book Removed!', 'success');
     }
 }
 
@@ -105,12 +103,13 @@ document.getElementById('book-form').addEventListener('submit', function(e){
 // Event DELEGATION for DELETION
 document.getElementById('book-list').addEventListener('click', function(e){
 
-    console.log('you arent retarded');
-
     // Instantiate UI
     const ui = new UI();
 
     ui.deleteBook(e.target);
+
+    // Show Message
+    ui.showAlert('Book Removed!', 'success');
 
     e.preventDefault();
 });
